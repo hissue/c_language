@@ -1,0 +1,95 @@
+#include <stdio.h>
+#include <cs50.h>
+#include <string.h>
+#define SIZE 10
+
+void quit(void);
+int add(int cnt,int num[],int l);
+int pop(int cnt, int num[],int l);
+void display(int cnt,int num[],int l);
+
+int main (void){
+    int a;
+    int cnt=0;
+    int l=0;
+    int num[SIZE];
+    while(1)
+    {
+        printf("번호를 입력하세요(1~4): ");
+        scanf("%i",&a);
+
+        switch (a){
+            case 1:
+            {
+                cnt+=1;
+
+                add(cnt,num,l);
+                l+=1;
+                continue;
+            }
+            case 2:
+            {
+                
+                pop(cnt,num,l);
+                l-=1;
+                continue;
+            }
+            case 3: display(cnt,num,l);
+                continue;
+            case 4: quit();
+                break;
+
+        }
+        break;
+    }
+
+}
+int add(int cnt,int *num,int l){
+
+    if(l>SIZE)//배열의 개수를 구해야 한다....
+        printf("Queue가 꽉 찼습니다.\n");
+    else
+    {
+        num[cnt-1]=cnt;
+        printf("%i번 입니다.\n", cnt);
+        printf("대기 인원은: %i 명입니다.\n",l);
+        //printf("%i\n",cnt);
+
+    }
+    return *num;
+}
+
+int pop(int cnt, int num[],int l){
+    int Temp;
+    if(cnt==0&&l<0)
+    {
+        printf("Queue가 비었습니다.\n");
+    }
+    else
+    {
+
+        printf("%i번째 손님 창구로 오십시오.\n",num[0]);
+
+        for(int a=0;a<SIZE-1;a++)
+        {
+            Temp = num[a];
+            num[a]=num[a+1];
+        }
+
+    cnt-=1;
+    }
+    return *num;
+}
+
+void display(int cnt,int *num,int l){
+
+    for(int k=0; k<l;k++)
+    {
+        printf("%i ",num[k]);
+    }
+    printf("\n");
+}
+
+void quit(void){
+    printf("업무를 중단합니다.\n");
+}
