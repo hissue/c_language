@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <cs50.h>//string 사용 라이브러리 추가
+#include <string.h>
+
+string menus (string day){//요일 메뉴 판단 함수
+        string menu;//요일의 메뉴
+        string mon = "월";
+        string tue = "화";
+        string wen = "수";
+        string tur = "목";
+        string fri = "금";
+        string sat = "토";
+        string sun = "일";
+
+        if(day == mon) menu="청국장";//월요일 할인메뉴
+        else if(day == tue) menu="비빔밥";//화요일 할인메뉴
+        else if(day == wen) menu="된장찌개";//수요일 할인메뉴
+        else if(day == tur) menu="칼국수";//목요일 할인메뉴
+        else if(day == fri) menu="냉면";//금요일 할인메뉴
+        else if(day == sat) menu="소불고기";//토요일 할인메뉴
+        else  menu="오삼불고기";//일요일 할인메뉴
+        return menu;
+}
+
+int main (void){
+    char day;//사용자 입력 날짜
+    
+    
+        printf("요일을 입력하세요(ex)월,화,수...) :  ");
+        scanf("%s",&day);//요일 입력
+        //요일 메뉴 판단 함수
+        printf("%c요일 : %s\n", day, menus(&day));
+    
+
+}
+
+
