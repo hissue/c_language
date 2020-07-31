@@ -1,0 +1,72 @@
+#include<stdio.h>
+#include<stdlib.h>  //rand(), srand();
+#include<time.h>    //time()
+#include<string.h>  //memset()
+#define SIZE 10
+
+void ran (int* arr, int size);
+void selection (int* arr,int size);
+void display(int* arr, int size);
+void swap(int *a,int *b);
+
+int main(void)
+{
+    int arr[SIZE];
+    ran(arr,SIZE);
+    printf("선택 정렬 전: ");
+    display(arr,SIZE);
+    printf("선택 정렬 후: ");
+    selection(arr,SIZE);
+
+}
+
+void ran (int* arr, int size)
+{
+    int cnt=0;
+    int test[size];
+    memset(test,0,size*4);
+    srand(time(NULL));
+    while(cnt<size){
+        int random=rand()%size;
+        if(test[random]==0)
+        {
+            test[random]=1;
+            arr[cnt]=random;
+            cnt++;
+        }
+    }
+
+}
+
+void selection (int* arr,int size)
+{
+    int test,j,i;
+    for( i=0;i<size-1;i++)
+    {
+        test=i;
+        for( j=i+1;j<size;j++)
+        {
+            if(arr[j]<arr[test])
+            {
+                test=j;
+            }
+        }
+        swap(&arr[i],&arr[test]);
+    }
+    display(arr,size);
+}
+void swap(int *a,int *b)
+{
+    int temp;
+    temp=*a;
+    *a=*b;
+    *b=temp;
+}
+void display(int* arr, int size)
+{
+     for(int i=0;i<size;i++)
+    {
+        printf("%i ",arr[i]);
+    }
+    printf("\n");
+}
