@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+
+int main (void)
+{   
+    int p_money;//목표 금액
+    float profit, r_money,rate=0.012;//만기금액,목표 원금 이율, 이율
+    printf("목표 금액을 정해 주세요: ");
+    scanf("%d",&p_money);//목표금액 입력
+    r_money=p_money*rate;//목표 원금 이율 계산
+    profit=p_money+r_money;//만기 금액 계산
+    printf("원금 : %d \n",p_money);//원금 출력
+    printf("이율 : %.2f \n",r_money);//총 원금 이율 출력
+    printf("만기시 받는 금액은: %.2f \n",profit);//만기시 받는 금액
+    
+}
