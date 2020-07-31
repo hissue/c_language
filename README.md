@@ -1,2 +1,1 @@
-# language
-all_language
+# include <stdio.h>
