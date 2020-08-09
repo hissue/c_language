@@ -25,6 +25,6 @@ int main (int argc , char *argv[])
     {
         printf("NO\n");
     }
-
+    fclose();
 return 0;
 }
