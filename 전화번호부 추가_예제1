@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <cs50.h>
+
+
+int main ()
+{
+    FILE *file=fopen("phonebook.csv","a");//file open, a is add , r is read, w is write
+    //user information
+    char *name = get_string("name : ");
+    char *number = get_string("number: ");
+    fprintf(file,"%s, %s\n",name,number);// fprintf(file name, "add string", string argumet);
+    fclose(file);//file close
+    
+    return 0;
+}
