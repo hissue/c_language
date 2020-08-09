@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <string.h>
+void sort(int n,int* arr);
+
+int main()
+{
+    int n=7;
+    int arr[7]={1,25,10,17,6,12,9};
+    sort(n,arr);
+
+return 0;
+}
+
+void sort(int n,int* arr)
+{
+    int bubble[n];
+    memset(bubble,0,sizeof(bubble));
+
+    for(int k=0;k<n;k++)//중첩 for문을 재귀함수로 표현 할 수 없을까?
+    {
+        for(int i=0;i<n;i++)
+        {
+            if(*(arr+i)>*(arr+i+1))
+            {
+                *(bubble+i)=*(arr+i);
+                *(arr+i)=*(arr+i+1);
+                *(arr+i+1)=*(bubble+i);
+            }
+        }
+    }
+
+    for(int j=0;j<n;j++)
+    {
+        if(j==n-1)
+        printf("%d",*(bubble+j));
+
+        else
+        printf("%d, ",*(bubble+j));
+
+    }
+    printf("\n");
+}
