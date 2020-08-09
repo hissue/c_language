@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <string.h>
+
+# define SIZE 20
+void len(char* a, char* b);
+void cpy(char* a, char* b);
+void ncpy(char* a, char* b);
+void cmp(char* a, char* b);
+void cat();
+
+int main()
+
+{
+	char a[SIZE]; //= get_char("문자를 입력하세요: ");
+	memset(a,0,sizeof(a)-1);
+	char* b = "world";
+	len(a, b);
+    cpy(a, b);
+    ncpy(a, b);
+    cmp(a, b);
+    cat();
+}
+
+void len(char* a, char* b)
+{
+    int c;
+    c = strlen(b);
+    printf("'world' 문자열 길이 : %d\n",c);
+}
+
+void cpy(char* a, char* b)
+{
+    strcpy(a,b);
+    printf("strcpy로 복사 후: %s\n",a);
+}
+
+void ncpy(char* a, char* b)
+{
+    memset(a,0,sizeof(a)-1);
+    strncpy(a,b,sizeof(a)-1);
+    printf("strncpy로 복사 후: %s\n",a);
+}
+
+void cmp(char* a, char* b)
+{
+    int c=strcmp(a,b);
+    if(c==1)
+        printf("a문자열이 크다.\n");
+    else if(c==-1)
+        printf("b문자열이 크다.\n");
+    else
+        printf("문자열이 같다.\n");
+}
+
+void cat()
+{
+    char c[SIZE]="hello";
+    strcat(c,"world");
+    printf("%s\n",c);
+}
