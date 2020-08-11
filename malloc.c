@@ -32,7 +32,7 @@ int main(void)
     }
 
     // tmp배열의 네 번째 값도 저장
-    tmp[3] = 4;
+    tmp[3] = 4; 
 
     // list의 메모리를 초기화
     free(list);
